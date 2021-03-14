@@ -1,0 +1,26 @@
+<div class="animate__animated animate__fadeIn animate__faster">
+  <h1>Por capital</h1>
+  <hr />
+</div>
+
+<div class="row">
+  <div class="col">
+    <form autocomplete="off" #countryForm="ngForm">
+      <app-input-countries
+        (onEnter)="buscar($event)"
+        placeholder="Buscar capital..."
+      >
+      </app-input-countries>
+    </form>
+  </div>
+</div>
+<hr />
+<div class="alert alert-danger" *ngIf="notFound">
+  No se encontró nada con el término {{ termino }}
+</div>
+
+<div class="row">
+  <div class="col">
+    <app-countries-table [countriesFound]="capitalFound"></app-countries-table>
+  </div>
+</div>

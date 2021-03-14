@@ -1,0 +1,27 @@
+<table
+  class="table table-hover animate__animated animate__fadeIn"
+  *ngIf="countriesFound.length > 0"
+>
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Bandera</th>
+      <th>Nombre</th>
+      <th>Población</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let country of countriesFound; let i = index">
+      <td>{{ i + 1 }}</td>
+      <td>
+        <img [src]="country.flag" [alt]="country.name" class="small-flag" />
+      </td>
+      <td>{{ country.capital }}, {{ country.name }}</td>
+      <td>{{ country.population | number }}</td>
+      <td>
+        <a [routerLink]="['pais/', country.alpha2Code]">Ver más...</a>
+      </td>
+    </tr>
+  </tbody>
+</table>
